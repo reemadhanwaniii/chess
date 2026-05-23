@@ -43,10 +43,10 @@ public class Cell {
     }
 
     public int getHorizontalDist(Cell cell) {
-       return Math.abs(this.getX() - cell.getX());
+       return cell.getX() - this.getX();
     }
 
     public int getVerticalDist(Cell cell) {
-       return Math.abs(this.getY() - cell.getY());
+       return cell.getY() - this.getY();
     }
 }

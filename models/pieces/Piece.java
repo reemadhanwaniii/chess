@@ -2,6 +2,7 @@ package models.pieces;
 
 import models.Board.Cell;
 import models.helpers.Color;
+import models.helpers.Direction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,5 +50,33 @@ public abstract class Piece {
 
     protected boolean isMovingHorizontally(Cell src,Cell dest) {
         return src.getHorizontalDist(dest) != 0 && src.getVerticalDist(dest) == 0;
+    }
+
+    protected Direction getDirection(Cell src,Cell dest) {
+        int x = src.getHorizontalDist(dest);
+        int y = src.getVerticalDist(dest);
+
+        if(x == 0 && y == 0) {
+            return Direction.NONE;
+        }
+        if(x == 0) {
+            return y > 0 ?Direction.FORWARD_Y : Direction.BACKWARD_Y;
+        }
+
+        if(y == 0) {
+            return x > 0 ?Direction.FORWARD_X : Direction.BACKWARD_X;
+        }
+
+        if(x == y) {
+            if(x > 0 && y > 0)
+                return Direction.DIAGONAL_FORWARD_RIGHT;
+            if(x < 0 && y < 0)
+                return Direction.DIAGONAL_BACKWARD_RIGHT;
+            if(x < 0 && y > 0)
+                return Direction.DIAGONAL_FORWARD_LEFT;
+            if(x > 0 && y < 0)
+                return Direction.DIAGONAL_BACKWARD_LEFT;
+        }
+        return Direction.NONE;
     }
 }
