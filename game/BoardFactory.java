@@ -2,9 +2,7 @@ package game;
 
 import models.Board.ChessBoard;
 import models.helpers.Color;
-import models.pieces.ChessPiece;
-import models.pieces.Pawn;
-import models.pieces.PieceName;
+import models.pieces.*;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -18,6 +16,7 @@ public class BoardFactory {
 
         placePawns(board,whitePieces,Color.WHITE);
         placePawns(board,blackPieces,Color.BLACK);
+
     }
     private static void placePawns(ChessBoard board,Map<PieceName,ChessPiece> chessPieces,Color color) {
         int row = (color == Color.BLACK) ? 6 : 1;
@@ -30,14 +29,22 @@ public class BoardFactory {
     }
     public static Map<PieceName, ChessPiece> getPieces(Color color) {
         Map<PieceName,ChessPiece> mp = new HashMap<>();
-        mp.put(PieceName.PAWN1,new Pawn(color,PieceName.PAWN1));
-        mp.put(PieceName.PAWN2,new Pawn(color,PieceName.PAWN2));
-        mp.put(PieceName.PAWN3,new Pawn(color,PieceName.PAWN3));
-        mp.put(PieceName.PAWN4,new Pawn(color,PieceName.PAWN4));
-        mp.put(PieceName.PAWN5,new Pawn(color,PieceName.PAWN5));
-        mp.put(PieceName.PAWN6,new Pawn(color,PieceName.PAWN6));
-        mp.put(PieceName.PAWN7,new Pawn(color,PieceName.PAWN7));
-        mp.put(PieceName.PAWN8,new Pawn(color,PieceName.PAWN8));
+        mp.put(PieceName.PAWN1,new Pawn(color,PieceName.PAWN1,color.toString().substring(0,1)+"P1"));
+        mp.put(PieceName.PAWN2,new Pawn(color,PieceName.PAWN2,color.toString().substring(0,1)+"P2"));
+        mp.put(PieceName.PAWN3,new Pawn(color,PieceName.PAWN3,color.toString().substring(0,1)+"P3"));
+        mp.put(PieceName.PAWN4,new Pawn(color,PieceName.PAWN4,color.toString().substring(0,1)+"P4"));
+        mp.put(PieceName.PAWN5,new Pawn(color,PieceName.PAWN5,color.toString().substring(0,1)+"P5"));
+        mp.put(PieceName.PAWN6,new Pawn(color,PieceName.PAWN6,color.toString().substring(0,1)+"P6"));
+        mp.put(PieceName.PAWN7,new Pawn(color,PieceName.PAWN7,color.toString().substring(0,1)+"P7"));
+        mp.put(PieceName.PAWN8,new Pawn(color,PieceName.PAWN8,color.toString().substring(0,1)+"P8"));
+        mp.put(PieceName.ROOK1,new Rook(color,PieceName.ROOK1,color.toString().substring(0,1)+"R1"));
+        mp.put(PieceName.ROOK2,new Rook(color,PieceName.ROOK2,color.toString().substring(0,1)+"R2"));
+        mp.put(PieceName.BISHOP1,new Bishop(color,PieceName.BISHOP1,color.toString().substring(0,1)+"B1"));
+        mp.put(PieceName.BISHOP2,new Bishop(color,PieceName.BISHOP2,color.toString().substring(0,1)+"B2"));
+        mp.put(PieceName.KNIGHT1,new Knight(color,PieceName.KNIGHT1,color.toString().toString().substring(0,1)+"K1"));
+        mp.put(PieceName.KNIGHT2,new Knight(color,PieceName.KNIGHT2,color.toString().substring(0,1)+"K2"));
+        mp.put(PieceName.KING,new King(color,PieceName.KING,color.toString().substring(0,1)+"KG"));
+        mp.put(PieceName.QUEEN,new Queen(color,PieceName.QUEEN,color.toString().substring(0,1)+"QN"));
         return mp;
     }
 }

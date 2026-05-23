@@ -1,9 +1,11 @@
 package models.pieces;
 
 import models.Board.Cell;
+import models.Board.ChessBoard;
 import models.helpers.Color;
 import models.helpers.Direction;
 import models.pieces.strategy.MovementStrategy;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,24 +14,23 @@ public abstract class Piece {
     private boolean isKilled;
     private final Color color;
     private final PieceName pieceName;
+    private final String pieceSymbol;
     private List<Move> movesDone;
     protected List<MovementStrategy> movementStrategies;
 
-    public Piece(Color color,PieceName pieceName) {
+    public Piece(Color color,PieceName pieceName,String pieceSymbol) {
         this.color = color;
         this.pieceName = pieceName;
         this.movesDone = new ArrayList<>();
+        this.pieceSymbol = pieceSymbol;
     }
 
-    protected boolean canMove(Cell start,Cell end) {
-        return this.movementStrategies.stream().anyMatch(strategy -> strategy.canMove(start,end));
+    public boolean canMove(Cell start, Cell end, ChessBoard board) {
+        return this.movementStrategies.stream().anyMatch(strategy -> strategy.canMove(start,end,board));
     }
-    private String getColorSymbol() {
-        return this.getColor().equals(Color.WHITE) ? "W" : "B";
-    }
+
     public String getPieceSymbol() {
-        String pieceName = this.getPieceName().toString();
-        return this.getColorSymbol() +pieceName.substring(0,1)+pieceName.substring(pieceName.length()-1);
+        return this.pieceSymbol;
     }
     public boolean isKilled() {
         return isKilled;

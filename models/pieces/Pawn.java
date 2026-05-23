@@ -12,21 +12,11 @@ import java.util.Arrays;
 
 public class Pawn extends Piece implements ChessPiece{
 
-    public Pawn(Color color,PieceName pieceName) {
-        super(color,pieceName);
+    public Pawn(Color color,PieceName pieceName,String pieceSymbol) {
+        super(color,pieceName,pieceSymbol);
         this.movementStrategies = Arrays.asList(new PawnDiagonalMovementStrategy(),new PawnVerticalMovementStrategy());
     }
 
-    /**
-     * direction can be either vertical or diagonal
-     * if diagoonal then x == y if y == 1 means move us valid
-     */
-
-    @Override
-    public boolean canMove(Cell src, Cell dest) {
-       if(super.canMove(src,dest)) return true;
-       return false;
-    }
 
     @Override
     public void makeMove(Cell src, Cell dest) {

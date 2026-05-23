@@ -2,10 +2,11 @@ package models.pieces;
 
 import exceptions.InvalidPieceMoveException;
 import models.Board.Cell;
+import models.Board.ChessBoard;
 import models.helpers.Color;
 
 public interface ChessPiece {
-   boolean canMove(Cell src, Cell dest) throws InvalidPieceMoveException;
+   boolean canMove(Cell src, Cell dest, ChessBoard board) throws InvalidPieceMoveException;
    void makeMove(Cell src, Cell dest);
    boolean isKilled();
    void setKilled(boolean killed);
