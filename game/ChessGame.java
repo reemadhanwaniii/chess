@@ -5,8 +5,14 @@ import models.Board.ChessBoard;
 
 public class ChessGame extends BoardGame{
 
-    public ChessGame(Board board) {
+    public ChessGame(ChessBoard board) {
         super(board);
+        BoardFactory.prepareBoardByPlacingPieces(board);
+    }
+
+    @Override
+    public void showBoard() {
+        this.board.display();
     }
 
     @Override

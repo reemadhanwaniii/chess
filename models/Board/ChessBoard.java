@@ -28,9 +28,9 @@ public class ChessBoard implements Board{
        for(int i=0;i<rc;i++) {
            for(int j=0;j<cc;j++) {
                if(board.get(i).get(j).hasPiece()) {
-                   System.out.println(board.get(i).get(j).getPiece().get().getPieceSymbol() + " | ");
+                   System.out.print(board.get(i).get(j).getPiece().get().getPieceSymbol() + "|");
                }else {
-                   System.out.print(" ___ | ");
+                   System.out.print("___|");
                }
            }
            System.out.println();

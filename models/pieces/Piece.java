@@ -28,7 +28,8 @@ public abstract class Piece {
         return this.getColor().equals(Color.WHITE) ? "W" : "B";
     }
     public String getPieceSymbol() {
-        return this.getColorSymbol() + this.getPieceName().toString();
+        String pieceName = this.getPieceName().toString();
+        return this.getColorSymbol() +pieceName.substring(0,1)+pieceName.substring(pieceName.length()-1);
     }
     public boolean isKilled() {
         return isKilled;
