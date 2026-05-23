@@ -41,4 +41,12 @@ public class Cell {
     public boolean hasPiece() {
        return piece.isPresent();
     }
+
+    public int getHorizontalDist(Cell cell) {
+       return Math.abs(this.getX() - cell.getX());
+    }
+
+    public int getVerticalDist(Cell cell) {
+       return Math.abs(this.getY() - cell.getY());
+    }
 }
