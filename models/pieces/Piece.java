@@ -24,6 +24,12 @@ public abstract class Piece {
     protected boolean canMove(Cell start,Cell end) {
         return this.movementStrategies.stream().anyMatch(strategy -> strategy.canMove(start,end));
     }
+    private String getColorSymbol() {
+        return this.getColor().equals(Color.WHITE) ? "W" : "B";
+    }
+    public String getPieceSymbol() {
+        return this.getColorSymbol() + this.getPieceName().toString();
+    }
     public boolean isKilled() {
         return isKilled;
     }

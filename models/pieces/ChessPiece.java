@@ -12,4 +12,5 @@ public interface ChessPiece {
    void listPossibleMoves(Cell src);
    boolean isFirstMove();
    Color getColor();
+   String getPieceSymbol();
 }

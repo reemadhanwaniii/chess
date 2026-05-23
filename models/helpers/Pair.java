@@ -2,18 +2,18 @@ package models.helpers;
 
 public class Pair {
     private int x;
-    private int y;
+    private char y;
 
-    public Pair(int x,int y) {
+    public Pair(int x,char y) {
         this.x = x;
         this.y = y;
     }
 
-    public int getY() {
+    public char getY() {
         return y;
     }
 
-    public void setY(int y) {
+    public void setY(char y) {
         this.y = y;
     }
 

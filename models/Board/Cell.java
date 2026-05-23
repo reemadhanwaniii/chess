@@ -9,7 +9,7 @@ public class Cell {
    private final Pair position;
    private Optional<ChessPiece> piece;
 
-   public Cell(int x,int y) {
+   public Cell(int x,char y) {
        this.position = new Pair(x,y);
        this.piece = Optional.empty();
    }
