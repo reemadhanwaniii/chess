@@ -1,5 +1,6 @@
 package game;
 
+import models.Board.Cell;
 import models.Board.ChessBoard;
 import models.helpers.Color;
 import models.pieces.*;
@@ -17,7 +18,50 @@ public class BoardFactory {
         placePawns(board,whitePieces,Color.WHITE);
         placePawns(board,blackPieces,Color.BLACK);
 
+        placeQueen(board,whitePieces,Color.WHITE);
+        placeQueen(board,blackPieces,Color.BLACK);
+
+        placeKing(board,whitePieces,Color.WHITE);
+        placeKing(board,blackPieces, Color.BLACK);
+
+        placeKnights(board,whitePieces,Color.WHITE);
+        placeKnights(board,blackPieces,Color.BLACK);
+
+        placeRooks(board,whitePieces,Color.WHITE);
+        placeRooks(board,blackPieces,Color.BLACK);
+
+        placeBishops(board,whitePieces,Color.WHITE);
+        placeBishops(board,blackPieces,Color.BLACK);
+
     }
+
+    private static void placeKing(ChessBoard board,Map<PieceName,ChessPiece> chessPieceMap,Color color) {
+        int row = (color == Color.WHITE) ? 0 : 7;
+        board.setPiece(chessPieceMap.get(PieceName.KING),row,'e');
+    }
+    private static void placeQueen(ChessBoard board,Map<PieceName,ChessPiece> chessPieces,Color color) {
+        int row = (color == Color.WHITE) ? 0 : 7;
+        board.setPiece(chessPieces.get(PieceName.QUEEN),row,'d');
+    }
+
+    private static void placeKnights(ChessBoard board,Map<PieceName,ChessPiece> chessPieceMap,Color color) {
+        int row = (color == Color.WHITE) ? 0 : 7;
+        board.setPiece(chessPieceMap.get(PieceName.KNIGHT1),row,'b');
+        board.setPiece(chessPieceMap.get(PieceName.KNIGHT2),row,'g');
+    }
+
+    private static void placeRooks(ChessBoard board,Map<PieceName,ChessPiece> chessPieceMap,Color color) {
+        int row = (color == Color.WHITE) ? 0 : 7;
+        board.setPiece(chessPieceMap.get(PieceName.ROOK1),row,'a');
+        board.setPiece(chessPieceMap.get(PieceName.ROOK2),row,'h');
+    }
+
+    private static void placeBishops(ChessBoard board,Map<PieceName,ChessPiece> chessPieceMap,Color color) {
+        int row = (color == Color.WHITE) ? 0 : 7;
+        board.setPiece(chessPieceMap.get(PieceName.BISHOP1),row,'c');
+        board.setPiece(chessPieceMap.get(PieceName.BISHOP2),row,'f');
+    }
+
     private static void placePawns(ChessBoard board,Map<PieceName,ChessPiece> chessPieces,Color color) {
         int row = (color == Color.BLACK) ? 6 : 1;
         List<PieceName> pieceNameList = Arrays.asList(PieceName.PAWN1,PieceName.PAWN2,PieceName.PAWN3,PieceName.PAWN4,
