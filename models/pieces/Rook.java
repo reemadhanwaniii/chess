@@ -1,6 +1,7 @@
 package models.pieces;
 
 import models.Board.Cell;
+import models.Board.ChessBoard;
 import models.helpers.Color;
 import models.pieces.strategy.HorizontalMovementStrategy;
 import models.pieces.strategy.VerticalMovementStrategy;
@@ -18,7 +19,7 @@ public class Rook extends Piece implements ChessPiece{
 
 
     @Override
-    public void makeMove(Cell src, Cell dest) {
+    public void makeMove(Cell src, Cell dest, ChessBoard board) {
 
     }
 

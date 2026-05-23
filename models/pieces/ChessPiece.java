@@ -7,7 +7,7 @@ import models.helpers.Color;
 
 public interface ChessPiece {
    boolean canMove(Cell src, Cell dest, ChessBoard board) throws InvalidPieceMoveException;
-   void makeMove(Cell src, Cell dest);
+   void makeMove(Cell src, Cell dest,ChessBoard board);
    boolean isKilled();
    void setKilled(boolean killed);
    void listPossibleMoves(Cell src);

@@ -18,7 +18,7 @@ public class Bishop extends Piece implements ChessPiece {
 
 
     @Override
-    public void makeMove(Cell src, Cell dest) {
+    public void makeMove(Cell src, Cell dest,ChessBoard board) {
 
     }
 

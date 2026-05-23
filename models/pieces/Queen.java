@@ -1,6 +1,7 @@
 package models.pieces;
 
 import models.Board.Cell;
+import models.Board.ChessBoard;
 import models.helpers.Color;
 import models.pieces.strategy.DiagonalMovementStrategy;
 import models.pieces.strategy.HorizontalMovementStrategy;
@@ -20,7 +21,7 @@ public class Queen extends Piece implements ChessPiece {
 
 
     @Override
-    public void makeMove(Cell src, Cell dest) {
+    public void makeMove(Cell src, Cell dest, ChessBoard board) {
 
     }
 

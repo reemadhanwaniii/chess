@@ -1,6 +1,7 @@
 package models.pieces;
 
 import models.Board.Cell;
+import models.Board.ChessBoard;
 import models.helpers.Color;
 
 public class King extends Piece implements ChessPiece {
@@ -11,7 +12,7 @@ public class King extends Piece implements ChessPiece {
 
 
     @Override
-    public void makeMove(Cell src, Cell dest) {
+    public void makeMove(Cell src, Cell dest, ChessBoard board) {
 
     }
 

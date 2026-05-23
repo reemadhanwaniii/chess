@@ -39,7 +39,11 @@ public class ChessBoard implements Board{
 
     @Override
     public void applyMove(Move move) {
+       int srcX = move.getSrcCell().getX();
+       char srcY = move.getSrcCell().getY();
 
+       ChessPiece piece = this.board.get(srcX).get(srcY - 'a').getPiece().get();
+       piece.makeMove(move.getSrcCell(),move.getDestCell());
     }
 
     @Override

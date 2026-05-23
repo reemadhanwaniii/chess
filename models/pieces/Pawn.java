@@ -2,6 +2,7 @@ package models.pieces;
 
 import exceptions.InvalidPieceMoveException;
 import models.Board.Cell;
+import models.Board.ChessBoard;
 import models.helpers.Color;
 import models.helpers.Direction;
 import models.pieces.strategy.PawnDiagonalMovementStrategy;
@@ -19,7 +20,7 @@ public class Pawn extends Piece implements ChessPiece{
 
 
     @Override
-    public void makeMove(Cell src, Cell dest) {
+    public void makeMove(Cell src, Cell dest, ChessBoard board) {
 
     }
 

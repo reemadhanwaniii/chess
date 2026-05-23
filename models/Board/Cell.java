@@ -34,7 +34,7 @@ public class Cell {
        return this.position.getX();
     }
 
-    public int getY() {
+    public char getY() {
        return this.position.getY();
     }
 
