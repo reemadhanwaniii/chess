@@ -4,11 +4,17 @@ import exceptions.InvalidPieceMoveException;
 import models.Board.Cell;
 import models.helpers.Color;
 import models.helpers.Direction;
+import models.pieces.strategy.PawnDiagonalMovementStrategy;
+import models.pieces.strategy.PawnVerticalMovementStrategy;
+
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
 public class Pawn extends Piece implements ChessPiece{
 
     public Pawn(Color color,PieceName pieceName) {
         super(color,pieceName);
+        this.movementStrategies = Arrays.asList(new PawnDiagonalMovementStrategy(),new PawnVerticalMovementStrategy());
     }
 
     /**
@@ -18,27 +24,8 @@ public class Pawn extends Piece implements ChessPiece{
 
     @Override
     public boolean canMove(Cell src, Cell dest) {
-        Direction direction = getDirection(src,dest);
-        int distY = Math.abs(src.getVerticalDist(dest));
-        if(isDirectionValid(direction)) {
-            if(isMovingVertically(src,dest) && !dest.hasPiece()) {
-
-
-                if(isFirstMove() && distY == 2) {
-//                    todo : logic to move piece and check path is empty
-                    return true;
-                }else if(distY == 1) {
-                    return true;
-                }else{
-                    return false;
-                }
-            }else {
-                if(dest.hasPiece() && dest.getPiece().get().getColor() != this.getColor() && distY == 1) {
-                    return true;
-                }
-            }
-        }
-        return false;
+       if(super.canMove(src,dest)) return true;
+       return false;
     }
 
     @Override
