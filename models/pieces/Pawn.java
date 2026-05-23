@@ -11,6 +11,11 @@ public class Pawn extends Piece implements ChessPiece{
         super(color,pieceName);
     }
 
+    /**
+     * direction can be either vertical or diagonal
+     * if diagoonal then x == y if y == 1 means move us valid
+     */
+
     @Override
     public boolean canMove(Cell src, Cell dest) {
         Direction direction = getDirection(src,dest);
