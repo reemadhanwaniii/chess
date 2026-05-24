@@ -16,11 +16,16 @@ public abstract class BoardGame {
   }
 
   public abstract void showBoard();
-  public void startGame() {
+  public void startGame() throws Exception {
 //      todo : logic to start game
     while (true) {
       Player current = players.poll();
       Move move = current.makeMove();
+
+      if(move == null) {
+        throw new Exception("Invalid move");
+      }
+
       this.board.applyMove(move);
       if (isGameOver()) {
         System.out.println("Game Over");

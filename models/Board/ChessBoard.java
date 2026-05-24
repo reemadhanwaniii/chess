@@ -43,7 +43,7 @@ public class ChessBoard implements Board{
        char srcY = move.getSrcCell().getY();
 
        ChessPiece piece = this.board.get(srcX).get(srcY - 'a').getPiece().get();
-       piece.makeMove(move.getSrcCell(),move.getDestCell());
+       piece.makeMove(move.getSrcCell(),move.getDestCell(),this);
     }
 
     @Override
