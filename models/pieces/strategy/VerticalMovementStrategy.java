@@ -15,7 +15,7 @@ public class VerticalMovementStrategy implements MovementStrategy{
         int rowStep = (end.getX() > start.getX()) ? 1 : -1;
         int currRow = start.getX() + rowStep;
 
-        int col = start.getY();
+        int col = start.getY()-'a';
 
         while(currRow != end.getX()) {
             if(board.getBoard().get(currRow).get(col).hasPiece()) return false;

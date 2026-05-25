@@ -11,12 +11,15 @@ public class HorizontalMovementStrategy implements MovementStrategy{
 
        if(start.getX() != end.getX()) return false;
 
+       int startCol = start.getY() - 'a';
+       int endCol = end.getY() - 'a';
+
        int colStep = (end.getY() > start.getY()) ? 1 : -1;
-       int currCol = start.getY() + colStep;
+       int currCol = startCol + colStep;
 
        int row = start.getX();
 
-       while(currCol != end.getY()) {
+       while(currCol != endCol) {
            if(board.getBoard().get(row).get(currCol).hasPiece()) return false;
 
            currCol+=colStep;
